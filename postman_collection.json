@@ -1,0 +1,405 @@
+{
+	"info": {
+		"_postman_id": "179bea0f-0b85-4277-ae5f-adb81fb85195",
+		"name": "Sistema Noleggio Biciclette API",
+		"description": "Collection completa per testare tutte le API del sistema di noleggio biciclette sviluppato con Flask",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "34910561"
+	},
+	"item": [
+		{
+			"name": "🔐 Autenticazione",
+			"item": [
+				{
+					"name": "Login Utente",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": \"mario@gmail.com\",\n    \"password\": \"mario123\"\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/api/auth/login",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"auth",
+								"login"
+							]
+						},
+						"description": "Endpoint per il login di utenti e amministratori"
+					},
+					"response": []
+				},
+				{
+					"name": "Login Admin",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": \"admin@gmail.com\",\n    \"password\": \"admin\"\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/api/auth/login",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"auth",
+								"login"
+							]
+						},
+						"description": "Login per amministratori del sistema"
+					},
+					"response": []
+				},
+				{
+					"name": "Registrazione Nuovo Utente",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"nome\": \"Giovanni\",\n    \"cognome\": \"Bianchi\",\n    \"email\": \"giovanni.bianchi@email.it\",\n    \"numTelefono\": \"3201234567\",\n    \"cartaCredito\": \"4532876509871234\",\n    \"password\": \"password123\",\n    \"via\": \"Via Roma, 10\",\n    \"città\": \"Milano\",\n    \"provincia\": \"Milano\",\n    \"regione\": \"Lombardia\"\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/api/auth/register",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"auth",
+								"register"
+							]
+						},
+						"description": "Registrazione di un nuovo utente nel sistema"
+					},
+					"response": []
+				}
+			],
+			"description": "Endpoints per autenticazione e registrazione utenti"
+		},
+		{
+			"name": "🚴‍♂️ Biciclette",
+			"item": [
+				{
+					"name": "Lista Tutte le Biciclette",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/api/biciclette",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"biciclette"
+							]
+						},
+						"description": "Ottieni la lista di tutte le biciclette ordinate per distanza percorsa"
+					},
+					"response": []
+				},
+				{
+					"name": "Crea Nuova Bicicletta",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{}"
+						},
+						"url": {
+							"raw": "{{base_url}}/api/biciclette",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"biciclette"
+							]
+						},
+						"description": "Aggiunge una nuova bicicletta al sistema con codici generati automaticamente"
+					},
+					"response": []
+				},
+				{
+					"name": "Stato Bicicletta",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/api/biciclette/5/status",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"biciclette",
+								"5",
+								"status"
+							]
+						},
+						"description": "Ottieni lo stato attuale di una bicicletta specifica"
+					},
+					"response": []
+				},
+				{
+					"name": "Elimina Bicicletta",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/api/biciclette/1",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"biciclette",
+								"1"
+							]
+						},
+						"description": "Elimina una bicicletta dal sistema"
+					},
+					"response": []
+				}
+			],
+			"description": "Gestione delle biciclette nel sistema"
+		},
+		{
+			"name": "🏛️ Stazioni",
+			"item": [
+				{
+					"name": "Lista Tutte le Stazioni",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/api/stazioni",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"stazioni"
+							]
+						},
+						"description": "Ottieni la lista di tutte le stazioni di noleggio"
+					},
+					"response": []
+				},
+				{
+					"name": "Crea Nuova Stazione",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"numSlot\": 25,\n    \"numBiciclette\": 15,\n    \"via\": \"Corso Europa, 12\",\n    \"città\": \"Milano\",\n    \"provincia\": \"Milano\",\n    \"regione\": \"Lombardia\",\n    \"latitudine\": 45.4654219,\n    \"longitudine\": 9.1859243\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/api/stazioni",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"stazioni"
+							]
+						},
+						"description": "Crea una nuova stazione di noleggio"
+					},
+					"response": []
+				},
+				{
+					"name": "Elimina Stazione",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/api/stazioni/1",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"stazioni",
+								"1"
+							]
+						},
+						"description": "Elimina una stazione dal sistema"
+					},
+					"response": []
+				}
+			],
+			"description": "Gestione delle stazioni di noleggio"
+		},
+		{
+			"name": "⚡ Operazioni",
+			"item": [
+				{
+					"name": "Operazioni per Utente",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/api/operazioni/utente/16",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"operazioni",
+								"utente",
+								"16"
+							]
+						},
+						"description": "Ottieni tutte le operazioni (noleggi e riconsegne) di un utente specifico"
+					},
+					"response": []
+				}
+			],
+			"description": "Gestione delle operazioni di noleggio e riconsegna"
+		},
+		{
+			"name": "👥 Utenti",
+			"item": [
+				{
+					"name": "Lista Tutti gli Utenti",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/api/utenti",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"utenti"
+							]
+						},
+						"description": "Ottieni la lista di tutti gli utenti registrati (solo per admin)"
+					},
+					"response": []
+				},
+				{
+					"name": "Profilo Utente",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/api/utenti/16/profilo",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"utenti",
+								"16",
+								"profilo"
+							]
+						},
+						"description": "Ottieni il profilo completo di un utente specifico"
+					},
+					"response": []
+				},
+				{
+					"name": "Aggiorna Profilo Utente",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"nome\": \"Mario\",\n    \"cognome\": \"Rossi\",\n    \"numTelefono\": \"3201234567\",\n    \"cartaCredito\": \"4532876509871234\",\n    \"via\": \"Via Nuova, 15\",\n    \"città\": \"Milano\",\n    \"provincia\": \"Milano\",\n    \"regione\": \"Lombardia\"\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/api/utenti/16/profilo",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"utenti",
+								"16",
+								"profilo"
+							]
+						},
+						"description": "Aggiorna le informazioni del profilo di un utente"
+					},
+					"response": []
+				}
+			],
+			"description": "Gestione dei profili utente"
+		},
+		{
+			"name": "ℹ️ Informazioni",
+			"item": [
+				{
+					"name": "Info API",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/api/info",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"info"
+							]
+						},
+						"description": "Ottieni informazioni complete su tutti gli endpoint API disponibili"
+					},
+					"response": []
+				}
+			],
+			"description": "Endpoint informativi del sistema"
+		}
+	],
+	"variable": [
+		{
+			"key": "base_url",
+			"value": "http://localhost:5000"
+		}
+	]
+}
