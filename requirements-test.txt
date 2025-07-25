@@ -1,0 +1,12 @@
+# Requirements per i test dell'applicazione bike sharing
+pytest>=7.0.0
+pytest-flask>=1.2.0
+SQLAlchemy>=1.4.0
+PyMySQL>=1.0.0
+Flask>=2.0.0
+
+# Per coverage (opzionale)
+pytest-cov>=4.0.0
+
+# Per test più verbosi (opzionale)
+pytest-xdist>=2.5.0 
